@@ -1,6 +1,9 @@
 <?php
 
-require_once 'controllers/CatController.php';
+require_once 'Controllers/CatController.php';
+require_once 'Controllers/ProdController.php';
+require_once 'Controllers/GralController.php';
+//require_once 'Views/GralView.php';
 
 
 // constantes
@@ -34,10 +37,31 @@ switch ($partesURL[ACTION]) {
         $controller = new CatController();
         $controller->deleteCat($partesURL[ID]);
         break;
-    case 'ver': 
-    default: 
+    case 'verprod':
+        $controller = new ProdController();
+        $controller->showProductos();
+        break;
+    case 'saveprod':
+        $controller = new ProdController();
+        $controller->saveProducto();
+        break;
+    case 'vercat': 
         $controller = new CatController();
         $controller->showCat();
+        break;
+    case 'inicio':
+        $controller = new GralController();
+        $controller->showInicio();
+        //$view = new GralView();
+        //$view->showindex();
+        break;
+    default: 
+        $controller = new GralController();
+        $controller->showInicio();
+        //$view = new GralView();
+        //$view->showindex();
+        //$controller = new CatController();
+        //$controller->showCat();
         break;
 }
 ?>

@@ -1,17 +1,20 @@
 <?php
-require_once "Views/CatView.php";
-require_once "Models/CatModel.php";
-class CatController
+require_once "Views/ProdView.php";
+require_once "Models/ProdModel.php";
+class ProdController
 {
-    public function saveCat()
+    public function saveProducto()
     {
         if(isset($_POST["nombre"]))
         {
             $nombre = $_POST["nombre"];
-            $model = new CatModel();
-            $model->saveCat($nombre);          
+            $cat_id = $_POST["categoria"];
+            //echo $nombre;
+            //echo $cat_id;
+            $model = new ProdModel();
+            $model->saveProducto($nombre,$cat_id);          
         }   
-        header("Location: ver");
+        header("Location: verprod");
     }   
 
     public function deleteCat($id)
@@ -21,12 +24,14 @@ class CatController
         header("Location: ../../ver");
     }
 
-    public function showCat()
+    public function showProductos()
     {
+        $prodmodel = new ProdModel();
+        $productos = $prodmodel->getProds();
         $catmodel = new CatModel();
         $categoria = $catmodel->getCats();
-        $view = new CatView();
-        $view->showCats($categoria);
+        $view = new ProdView();
+        $view->showProds($productos,$categoria);
 
     }
 
@@ -52,7 +57,7 @@ class CatController
 
              
        
-        header("Location: vercat");
+        header("Location: ver");
     }
     
 }
