@@ -11,14 +11,14 @@ class CatController
             $model = new CatModel();
             $model->saveCat($nombre);          
         }   
-        header("Location: ver");
+        header("Location: vercat");
     }   
 
     public function deleteCat($id)
     {
         $model = new CatModel();
         $model->deleteCat($id);          
-        header("Location: ../../ver");
+        header("Location: ../../vercat");
     }
 
     public function showCat()
@@ -27,6 +27,15 @@ class CatController
         $categoria = $catmodel->getCats();
         $view = new CatView();
         $view->showCats($categoria);
+
+    }
+
+    public function slshowCats()
+    {
+        $catmodel = new CatModel();
+        $categoria = $catmodel->slgetCats();
+        $view = new CatView();
+        $view->slshowCats($categoria);
 
     }
 

@@ -28,10 +28,13 @@
                         <a class="nav-link" href="inicio">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="verprod">Productos</a>
+                        <a class="nav-link" href="slcatview">Categorias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="vercat">Categorias</a>
+                        <a class="nav-link" href="slprodview">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="slprocatview">Cat&Pro</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="ingreso">Login</a>

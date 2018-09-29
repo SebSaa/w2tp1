@@ -17,6 +17,25 @@
             $smarty->assign('basehref',$this->basehref);
             $smarty->display('templates/listProd.tpl');
         }
+
+        public function slshowProds($productos)
+        {
+            $smarty = new Smarty();
+            $smarty->assign('titulo',"Productos");
+            $smarty->assign('productos_list',$productos);
+            $smarty->assign('basehref',$this->basehref);
+            $smarty->display('templates/sllistProd.tpl');
+        }
+
+        public function slshowProCat($productos,$categorias)
+        {
+            $smarty = new Smarty();
+            $smarty->assign('titulo',"Productos");
+            $smarty->assign('productos_list',$productos);
+            $smarty->assign('categorias_list',$categorias);
+            $smarty->assign('basehref',$this->basehref);
+            $smarty->display('templates/slcatprod.tpl');
+        }
         
         function showEditCat($categoria)
         {

@@ -18,6 +18,16 @@
             $smarty->assign('basehref',$this->basehref);
             $smarty->display('templates/listaCat.tpl');
         }
+
+        public function slshowCats($categoria)
+        {
+            
+            $smarty = new Smarty();
+            $smarty->assign('titulo',"Categorias");
+            $smarty->assign('categorias_list',$categoria);
+            $smarty->assign('basehref',$this->basehref);
+            $smarty->display('templates/sllistaCat.tpl');
+        }
         
         function showEditCat($categoria)
         {

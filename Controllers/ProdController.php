@@ -34,6 +34,25 @@ class ProdController
         $view->showProds($productos,$categoria);
 
     }
+    public function slshowProductos()
+    {
+        $prodmodel = new ProdModel();
+        $productos = $prodmodel->slgetProds();
+        $view = new ProdView();
+        $view->slshowProds($productos);
+
+    }
+    public function slshowProCat()
+    {
+        $prodmodel = new ProdModel();
+        $productos = $prodmodel->slgetProds();
+        $catmodel = new CatModel();
+        $categoria = $catmodel->slgetCats();
+        $view = new ProdView();
+        $view->slshowProCat($productos,$categoria);
+
+    }
+
 
     public function verEditCat($id)
     {

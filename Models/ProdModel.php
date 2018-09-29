@@ -15,6 +15,12 @@ class ProdModel
         $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
+    function slgetProds()
+    {
+        $sentencia = $this->db_connection->prepare( "select nombre from producto");
+        $sentencia->execute();
+        return $sentencia->fetchAll(PDO::FETCH_OBJ);
+    }
 
     function getProd($id)
     {

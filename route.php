@@ -3,6 +3,7 @@
 require_once 'Controllers/CatController.php';
 require_once 'Controllers/ProdController.php';
 require_once 'Controllers/GralController.php';
+require_once 'Controllers/Sl_ProdController.php';
 //require_once 'Views/GralView.php';
 
 
@@ -20,6 +21,18 @@ $partesURL = explode("/", $action);
 
 // decide que acción tomar en base a la url
 switch ($partesURL[ACTION]) {
+    case 'slprocatview':
+        $controller = new ProdController();
+        $controller->slshowProCat();
+        break;
+    case 'slprodview':
+        $controller = new ProdController();
+        $controller->slshowProductos();
+        break;
+    case 'slcatview':
+        $controller = new CatController();
+        $controller->slshowCats();
+        break;
     case 'save': 
         $controller = new CatController();
         $controller->saveCat();

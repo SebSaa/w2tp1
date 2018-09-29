@@ -9,6 +9,12 @@ class CatModel
         .'dbname=super_m;charset=utf8'
         , 'root', '');
     }
+    function slgetCats()
+    {
+        $sentencia = $this->db_connection->prepare( "select nombre from categoria");
+        $sentencia->execute();
+        return $sentencia->fetchAll(PDO::FETCH_OBJ);
+    }
     function getCats()
     {
         $sentencia = $this->db_connection->prepare( "select * from categoria");
