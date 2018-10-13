@@ -1,7 +1,8 @@
 <?php
 require_once "Views/CatView.php";
 require_once "Models/CatModel.php";
-class CatController
+require_once "Controllers/SecuredController.php";
+class CatController extends SecuredController
 {
     public function saveCat()
     {
@@ -11,7 +12,7 @@ class CatController
             $model = new CatModel();
             $model->saveCat($nombre);          
         }   
-        header("Location: vercat");
+        header("Location: catview");
     }   
 
     public function deleteCat($id)
@@ -21,7 +22,7 @@ class CatController
         header("Location: ../../vercat");
     }
 
-    public function showCat()
+    public function showCats()
     {
         $catmodel = new CatModel();
         $categoria = $catmodel->getCats();
@@ -30,14 +31,7 @@ class CatController
 
     }
 
-    public function slshowCats()
-    {
-        $catmodel = new CatModel();
-        $categoria = $catmodel->slgetCats();
-        $view = new CatView();
-        $view->slshowCats($categoria);
-
-    }
+    
 
     public function verEditCat($id)
     {

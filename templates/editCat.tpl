@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="headeradmin.tpl"}
     <h3>{$titulo}</h3>
     
     <p>Categoria: {$categorias_list->nombre} // Id: {$categorias_list->id_Cat}</p>

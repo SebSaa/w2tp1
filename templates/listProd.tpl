@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="headeradmin.tpl"}
 
 <div class="row">
   <div class="col-sm-4">
@@ -15,11 +15,18 @@
   </div>
   <div class="col-sm-4">
     <h4>Productos</h4>
-    <table>
+    <table class="table table-striped table-dark">        
+            <thead>
+                <tr>
+                <th scope="col">Productos</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                </tr>
+            </thead>
         {foreach from=$productos_list item=listado}
             <tr> 
                 <td>{$listado->nombre}</td> 
-                <td><a href="tareas/{$listado->id_Cat}/">{$listado->id_Cat}</a></td>
                 <td><a href="veredit/{$listado->id_Cat}/">Editar</a></td>
                 <td><a href="delete/{$listado->id_Cat}/">Eliminar</a></td>
             </tr>

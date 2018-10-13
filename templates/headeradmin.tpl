@@ -24,7 +24,7 @@
 </div>
 <div class="row">
     <div class="col-sm">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Super M</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -32,19 +32,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="inicio">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="iniciol">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="catsl">Categorias</a>
+                        <a class="nav-link" href="catview">Categorias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="prodsl">Productos</a>
+                        <a class="nav-link" href="prodview">Productos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="catprodsl">Cat&Pro</a>
+                        <a class="nav-link" href="prodcatview">Cat&Pro</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login">Login</a>
+                        <a class="nav-link" href="logout">Login</a>
                     </li>
                 </ul>
             </div>

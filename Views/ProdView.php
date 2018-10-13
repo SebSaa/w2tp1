@@ -6,7 +6,8 @@
         
         public function __construct(){
             $this->basehref = '//'.$_SERVER['SERVER_NAME'] 
-                .dirname($_SERVER['PHP_SELF']).'/';     
+                .dirname($_SERVER['PHP_SELF']).'/';
+                    
         }
         public function showProds($productos,$categorias)
         {
@@ -18,6 +19,16 @@
             $smarty->display('templates/listProd.tpl');
         }
 
+        function showEditCat($categoria)
+        {
+            $smarty = new Smarty();
+            $smarty->assign('titulo',"Editando Producto");
+            $smarty->assign('categorias_list',$categoria);
+            $smarty->assign('basehref',$this->basehref);
+            $smarty->display('templates/editCat.tpl');
+        }
+
+        //mostramos los productos solos con precio y stcok
         public function slshowProds($productos)
         {
             $smarty = new Smarty();
@@ -27,7 +38,7 @@
             $smarty->display('templates/sllistProd.tpl');
         }
 
-        public function slshowProCat($productos,$categorias)
+        /*public function slshowProCat($productos,$categorias)
         {
             $smarty = new Smarty();
             $smarty->assign('titulo',"Productos");
@@ -35,14 +46,16 @@
             $smarty->assign('categorias_list',$categorias);
             $smarty->assign('basehref',$this->basehref);
             $smarty->display('templates/slcatprod.tpl');
-        }
-        
-        function showEditCat($categoria)
+        }*/
+
+        public function slshowProCat($proxcat)
         {
             $smarty = new Smarty();
-            $smarty->assign('titulo',"Editando Producto");
-            $smarty->assign('categorias_list',$categoria);
+            $smarty->assign('titulo',"Productos por Categoria");
+            $smarty->assign('listado',$proxcat);
             $smarty->assign('basehref',$this->basehref);
-            $smarty->display('templates/editCat.tpl');
+            $smarty->display('templates/slproxcat.tpl');
         }
+
+
     }

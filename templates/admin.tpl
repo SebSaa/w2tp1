@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="headeradmin.tpl"}
     <div class="row">
         <div class="col-sm-4">
         </div>

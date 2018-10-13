@@ -1,9 +1,13 @@
 <?php
 
+require_once 'Controllers/CatSlController.php';
 require_once 'Controllers/CatController.php';
+require_once 'Controllers/ProdSlController.php';
 require_once 'Controllers/ProdController.php';
+require_once 'Controllers/GralSlController.php';
 require_once 'Controllers/GralController.php';
-require_once 'Controllers/Sl_ProdController.php';
+require_once 'Controllers/LoginController.php';
+
 //require_once 'Views/GralView.php';
 
 
@@ -21,17 +25,49 @@ $partesURL = explode("/", $action);
 
 // decide que acción tomar en base a la url
 switch ($partesURL[ACTION]) {
-    case 'slprocatview':
-        $controller = new ProdController();
-        $controller->slshowProCat();
-        break;
-    case 'slprodview':
-        $controller = new ProdController();
-        $controller->slshowProductos();
-        break;
-    case 'slcatview':
-        $controller = new CatController();
+    case 'catsl':
+        $controller = new CatSlController();
         $controller->slshowCats();
+        break;
+    case 'prodsl':
+        $controller = new ProdSlController();
+        $controller->showProds();
+        break;
+    case 'catprodsl':
+        $controller = new ProdSlController();
+        $controller->showProdCat();
+        break;
+    
+    case 'iniciol':
+        $controller = new GralController();
+        $controller->showInicio();
+         break;
+    
+    case 'catview':
+         $controller = new CatController();
+         $controller->showCats();
+         break;
+    case 'prodview':
+         $controller = new ProdController();
+         $controller->showProductos();
+         break;
+    case 'prodcatview':
+        $controller = new ProdController();
+        $controller->showProdCat();
+        break;
+    
+    
+    case 'login':
+        $controller = new LoginController();
+        $controller->showLogin();
+        break;
+    case 'logout':
+        $controller = new LoginController();
+        $controller->logout();
+        break;
+    case 'verify':
+        $controller = new LoginController();
+        $controller->verify();
         break;
     case 'save': 
         $controller = new CatController();
@@ -63,18 +99,12 @@ switch ($partesURL[ACTION]) {
         $controller->showCat();
         break;
     case 'inicio':
-        $controller = new GralController();
+        $controller = new GralSlController();
         $controller->showInicio();
-        //$view = new GralView();
-        //$view->showindex();
-        break;
+         break;
     default: 
-        $controller = new GralController();
+        $controller = new GralSlController();
         $controller->showInicio();
-        //$view = new GralView();
-        //$view->showindex();
-        //$controller = new CatController();
-        //$controller->showCat();
         break;
 }
 ?>

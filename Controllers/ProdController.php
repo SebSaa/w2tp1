@@ -1,7 +1,8 @@
 <?php
 require_once "Views/ProdView.php";
 require_once "Models/ProdModel.php";
-class ProdController
+require_once "Controllers/SecuredController.php";
+class ProdController extends SecuredController
 {
     public function saveProducto()
     {
@@ -34,26 +35,7 @@ class ProdController
         $view->showProds($productos,$categoria);
 
     }
-    public function slshowProductos()
-    {
-        $prodmodel = new ProdModel();
-        $productos = $prodmodel->slgetProds();
-        $view = new ProdView();
-        $view->slshowProds($productos);
-
-    }
-    public function slshowProCat()
-    {
-        $prodmodel = new ProdModel();
-        $productos = $prodmodel->slgetProds();
-        $catmodel = new CatModel();
-        $categoria = $catmodel->slgetCats();
-        $view = new ProdView();
-        $view->slshowProCat($productos,$categoria);
-
-    }
-
-
+    
     public function verEditCat($id)
     {
         $catmodel = new CatModel();
@@ -65,7 +47,6 @@ class ProdController
 
     public function editCat($id)
     {
-
         if(isset($_POST["nombre"]))
         {
             $nombre = $_POST["nombre"];
@@ -73,11 +54,26 @@ class ProdController
             $catmodel = new CatModel();
             $categoria = $catmodel->editCat($id,$nombre);           
         }   
-
-             
-       
         header("Location: ver");
     }
+
+    public function slshowProductos()
+    {
+        $user =  $_SESSION['USERNAME'];
+        $prodmodel = new ProdModel();
+        $productos = $prodmodel->slgetProds();
+        $view = new ProdView();
+        $view->slshowProds($productos,$user);
+    }
+    public function showProdCat()
+    {
+        $promodel = new Prodmodel();
+        $proxcat = $promodel->slproxcat();
+        $view = new ProdView();
+        $view->showProCat($proxcat);
+        
+    }
+
     
 }
     
