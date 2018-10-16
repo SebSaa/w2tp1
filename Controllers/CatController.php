@@ -19,7 +19,7 @@ class CatController extends SecuredController
     {
         $model = new CatModel();
         $model->deleteCat($id);          
-        header("Location: ../../vercat");
+        header("Location: ../../catview");
     }
 
     public function showCats()
@@ -50,12 +50,13 @@ class CatController extends SecuredController
             $nombre = $_POST["nombre"];
             $id = $_POST["id"];
             $catmodel = new CatModel();
-            $categoria = $catmodel->editCat($id,$nombre);           
+            $categoria = $catmodel->editCat($id,$nombre); 
+
         }   
 
              
        
-        header("Location: vercat");
+        header("Location: catview");
     }
     
 }

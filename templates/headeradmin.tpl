@@ -40,12 +40,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="prodview">Productos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="prodcatview">Cat&Pro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout">Login</a>
-                    </li>
+                    
                 </ul>
             </div>
         </nav>

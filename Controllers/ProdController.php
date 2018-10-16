@@ -18,11 +18,11 @@ class ProdController extends SecuredController
         header("Location: verprod");
     }   
 
-    public function deleteCat($id)
+    public function deleteProd($id)
     {
-        $model = new CatModel();
-        $model->deleteCat($id);          
-        header("Location: ../../ver");
+        $model = new ProdModel();
+        $model->deleteProd($id);          
+        header("Location: ../../prodview");
     }
 
     public function showProductos()
@@ -36,25 +36,27 @@ class ProdController extends SecuredController
 
     }
     
-    public function verEditCat($id)
+    public function verEditProd($id)
     {
-        $catmodel = new CatModel();
-        $categoria = $catmodel->getCat($id);         
-        $view = new CatView();
-        $view->showEditCat($categoria);
+        $prodmodel = new ProdModel();
+        $producto = $prodmodel->getProd($id);         
+        $view = new ProdView();
+        $view->showEditProd($producto);
         //header("Location: ../../ver");
     }
 
-    public function editCat($id)
+    public function editProd()
     {
         if(isset($_POST["nombre"]))
         {
             $nombre = $_POST["nombre"];
             $id = $_POST["id"];
-            $catmodel = new CatModel();
-            $categoria = $catmodel->editCat($id,$nombre);           
+            $precio = $_POST["precio"];
+            $stock = $_POST["stock"];
+            $prodmodel = new ProdModel();
+            $producto = $prodmodel->editProd($id,$nombre,$precio,$stock);           
         }   
-        header("Location: ver");
+        header("Location: prodview");
     }
 
     public function slshowProductos()

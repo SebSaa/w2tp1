@@ -11,7 +11,7 @@ class ProdModel
     }
     function getProds()
     {
-        $sentencia = $this->db_connection->prepare( "select * from producto");
+        $sentencia = $this->db_connection->prepare( "select * from producto order by nombre");
         $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
@@ -19,7 +19,7 @@ class ProdModel
     function getProd($id)
     {
         $sentencia = $this->db_connection->prepare( "select * from producto"
-                ." WHERE id_Prod = ?");
+                ." WHERE id_Art = ?");
         $sentencia->execute(array($id));
         return $sentencia->fetch(PDO::FETCH_OBJ);
     }
@@ -34,24 +34,24 @@ class ProdModel
         $sentencia->execute(array($nombre,$cat_id));
     }
 
-    function deleteProd($id_Cat)
+    function deleteProd($id)
     {
         $sentencia = $this->db_connection->prepare( 
-        "delete from producto where id_Prod=?");
-        $sentencia->execute(array($id_Cat));
+        "delete from producto where id_Art=?");
+        $sentencia->execute(array($id));
     }
 
-    function editProd($id_prod,$nombrenuevo)
+    function editProd($id_prod,$nombrenuevo,$precio,$stock)
     {
         $sentencia = $this->db_connection->prepare( 
-        "UPDATE producto SET nombre = '$nombrenuevo' WHERE id_Prod=?");
+        "UPDATE producto SET nombre = '$nombrenuevo', precio='$precio', stock='$stock' WHERE id_Art=?");
         $sentencia->execute(array($id_prod));
     }
 
     //llamado x showProds de ProdSlontroller
     function slgetProds()
     {
-        $sentencia = $this->db_connection->prepare( "select nombre, precio, stock from producto");
+        $sentencia = $this->db_connection->prepare( "select * from producto");
         $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }

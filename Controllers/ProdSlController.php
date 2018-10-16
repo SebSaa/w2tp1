@@ -19,6 +19,17 @@ class ProdSlController
         
     }
 
+    public function showProd($id_Art,$id_Cat)
+    {
+        $prodmodel = new ProdModel();
+        $producto = $prodmodel->getProd($id_Art);
+        $catmodel = new CatModel();
+        $categoria = $catmodel->getCat($id_Cat);
+        $view = new ProdView();
+        $view->slshowprod($producto,$categoria);
+    }
+    
+
     
 }
     

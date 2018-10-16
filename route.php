@@ -14,6 +14,8 @@ require_once 'Controllers/LoginController.php';
 // constantes
 define('ACTION', 0); 
 define('ID', 1);
+define('ID2', 2);
+
 
 // si no indica "action" forzamos asi entra al default
 if (!isset($_GET['action']))
@@ -46,6 +48,10 @@ switch ($partesURL[ACTION]) {
     case 'catview':
          $controller = new CatController();
          $controller->showCats();
+         break;
+    case 'vermas': 
+         $controller = new ProdSlController();
+         $controller->showProd($partesURL[ID],$partesURL[ID2]);
          break;
     case 'prodview':
          $controller = new ProdController();
@@ -80,11 +86,25 @@ switch ($partesURL[ACTION]) {
     case 'edit': 
         $controller = new CatController();
         $controller->editCat($partesURL[ID]);
-        var_dump($partesURL[ID]);
+        //var_dump($partesURL[ID]);
+        break;
+    case 'vereditprod': 
+        $controller = new ProdController();
+        $controller->verEditProd($partesURL[ID]);
+        break;
+    case 'editprod': 
+        $controller = new ProdController();
+        $controller->editProd();
+        //$controller->editProd($partesURL[ID]);
+        //var_dump($partesURL[ID]);
         break;
     case 'delete': 
         $controller = new CatController();
         $controller->deleteCat($partesURL[ID]);
+        break;
+    case 'deleteprod': 
+        $controller = new ProdController();
+        $controller->deleteProd($partesURL[ID]);
         break;
     case 'verprod':
         $controller = new ProdController();

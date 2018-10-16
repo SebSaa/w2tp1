@@ -10,18 +10,24 @@
           <th scope="col">PRODUCTO</th>
           <th scope="col">PRECIO</th>
           <th scope="col">STOCK</th>
-          <th scope="col">VER</th>
+          <th scope="col">ID</th>
+          <th scope="col">CATEGORIA</th>
+
           
         </tr>
       </thead>
-        {foreach from=$productos_list item=listado}
+        
           <tr>  
-            <td>{$listado->nombre}</td>
-            <td>$ {$listado->precio}</td>
-            <td>{$listado->stock}</td>
-            <td><a href="vermas/{$listado->id_Art}/{$listado->id_Cat}/">Detalle</a></td> 
+            <td>{$producto->nombre}</td>
+            <td>{$producto->precio}</td>
+            <td>{$producto->stock}</td>
+            <td>{$producto->id_Art}</td> 
+            <td>{$categoria->nombre}</td> 
+
+
+            
           </tr>
-        {/foreach}
+        
     </table>
   </div>
   <div class="col-sm-4">

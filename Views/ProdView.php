@@ -11,21 +11,23 @@
         }
         public function showProds($productos,$categorias)
         {
+            $user = $_SESSION['USERNAME'];
             $smarty = new Smarty();
             $smarty->assign('titulo',"Productos");
+            $smarty->assign('usuario',$user);
             $smarty->assign('categorias_list',$categorias);
             $smarty->assign('productos_list',$productos);
             $smarty->assign('basehref',$this->basehref);
             $smarty->display('templates/listProd.tpl');
         }
 
-        function showEditCat($categoria)
+        function showEditProd($producto)
         {
             $smarty = new Smarty();
             $smarty->assign('titulo',"Editando Producto");
-            $smarty->assign('categorias_list',$categoria);
+            $smarty->assign('producto_list',$producto);
             $smarty->assign('basehref',$this->basehref);
-            $smarty->display('templates/editCat.tpl');
+            $smarty->display('templates/editProd.tpl');
         }
 
         //mostramos los productos solos con precio y stcok
@@ -57,5 +59,14 @@
             $smarty->display('templates/slproxcat.tpl');
         }
 
+        public function slshowprod($producto,$categoria)
+        {
+            $smarty = new Smarty();
+            $smarty->assign('titulo',"Detalle de un Producto");
+            $smarty->assign('producto',$producto);
+            $smarty->assign('categoria',$categoria);
+            $smarty->assign('basehref',$this->basehref);
+            $smarty->display('templates/slprod.tpl');
 
+        }
     }
